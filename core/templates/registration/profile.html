@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% block content %}
+<div class="row justify-content-center">
+    
+    <div class="col-md-8 col-lg-6">
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>Perfil de {{ user.username }}</h3>
+            </div>
+            <div class="card-body">
+                
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Nome de Usuário:</strong>
+                        <span>{{ user.username }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>E-mail:</strong>
+                        <span>{{ user.email }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Nome:</strong>
+                        <span>{{ user.first_name|default:"Não informado" }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Sobrenome:</strong>
+                        <span>{{ user.last_name|default:"Não informado" }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Membro desde:</strong>
+                        <span>{{ user.date_joined|date:"d/m/Y" }}</span>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="card-footer text-center">
+                <a href="#" class="btn btn-secondary btn-sm">Editar Perfil</a>
+                <a href="{% url 'password_change' %}" class="btn btn-danger btn-sm">Alterar Senha</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
