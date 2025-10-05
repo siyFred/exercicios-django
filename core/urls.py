@@ -5,8 +5,9 @@ from core import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('login/', views.login, name='login'),
-    path('logout/', views.logout, name='logout'),
+    path('logout/', views.LogoutView.as_view(), name='logout'),
     path('register/', views.register, name='register'),
+    path('profile/', views.profile, name='profile'),
     path('recoverpassword/', views.RecoverPassword.as_view(), name='recover_password'),
     path('recoverpassword/done/', views.RecoverPasswordDone.as_view(), name='recover_password_done'),
     path('recoverpassword/<uidb64>/<token>/', views.RecoverPasswordConfirm.as_view(), name='recover_password_confirm'),

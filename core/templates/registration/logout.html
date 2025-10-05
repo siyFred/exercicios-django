@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% block extra_head %}
+    <meta http-equiv="refresh" content="3;url={% url 'home' %}">
+{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card text-center shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title">Você saiu com sucesso!</h2>
+                <p class="card-text">Obrigado por utilizar nosso site. Esperamos te ver novamente em breve.</p>
+                <p class="text-muted">Você será redirecionado para a página inicial em 3 segundos.</p>
+                <div class="mt-4">
+                    <a href="{% url 'home' %}" class="btn btn-primary">Ir para a página inicial agora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
