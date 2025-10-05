@@ -4,7 +4,7 @@ from core import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('login/', views.home, name='login'),
-    path('logout/', views.home, name='logout'),
-    path('register/', views.home, name='register'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
+    path('register/', views.register, name='register'),
 ]

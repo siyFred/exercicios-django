@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% block content %}
+<div class="row justify-content-center">
+    
+    <div class="col-md-6 col-lg-4">
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Entrar</h2>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    {% bootstrap_form form %}
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary mt-3">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <p class="mb-2">Não tem uma conta?</p>
+                <div class="d-grid">
+                    <a href="{% url 'register' %}" class="btn btn-secondary">Crie uma conta aqui</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
