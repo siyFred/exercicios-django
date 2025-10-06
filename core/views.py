@@ -52,7 +52,7 @@ def custom_403(request, exception):
     return render(request, 'errorhandlers/403.html', status=403)
 
 def listar_pessoas(request):
-    pessoas = Pessoa.objects.all().order_by('nome')
+    pessoas = Pessoa.objects.all().order_by('usuario__first_name')
     context = { 'pessoas': pessoas }
     return render(request, 'listar_pessoas.html', context)
 class LogoutView(auth_views.LogoutView):
