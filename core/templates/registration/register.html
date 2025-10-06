@@ -10,10 +10,7 @@
                 <h2 class="card-title text-center mb-4">Criar uma conta</h2>
                 
                 <form method="post">
-                    {% csrf_token %}
-                    
-                    {% bootstrap_form form %}
-                    
+                    {% csrf_token %} {% bootstrap_form form %}
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
                     </div>
