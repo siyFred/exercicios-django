@@ -16,18 +16,24 @@
                         <thead class="table-dark">
                             <tr>
                                 <th>Nome</th>
-                                <th>E-mail</th>
+                                <th>Usuário</th> <th>E-mail</th>
                                 <th>CPF</th>
-                                <th>Telefone</th>
+                                <th>Endereço</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for pessoa in pessoas %}
                             <tr>
-                                <td>{{ pessoa.nome }}</td>
-                                <td>{{ pessoa.email }}</td>
+                                <td>{{ pessoa.usuario.get_full_name|default:pessoa.usuario.username }}</td>
+                                <td>@{{ pessoa.usuario.username }}</td> <td>{{ pessoa.usuario.email }}</td>
                                 <td>{{ pessoa.cpf }}</td>
-                                <td>{{ pessoa.telefone|default:"-" }}</td>
+                                <td>
+                                    {% if pessoa.endereco_set.first %}
+                                        {{ pessoa.endereco_set.first }}
+                                    {% else %}
+                                        <span class="text-muted">Sem endereço cadastrado</span>
+                                    {% endif %}
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -41,7 +47,7 @@
 
             </div>
             <div class="card-footer text-end">
-                <a href="/admin/core/pessoa/add/" class="btn btn-success" target="_blank">Adicionar Nova Pessoa</a>
+                <a href="{% url 'admin:core_pessoa_add' %}" class="btn btn-success" target="_blank">Adicionar Nova Pessoa</a>
             </div>
         </div>
 
